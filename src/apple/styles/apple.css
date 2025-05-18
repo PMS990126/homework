@@ -1,0 +1,119 @@
+@import "./card-component.css";
+
+/* 카드 레이아웃 */
+.card-layout {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--black);
+}
+
+/* 제품 카드 */
+.product-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  max-width: 37.5rem; /* 600px */
+  height: var(--size);
+  background-color: var(--black);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+/* 카드 콘텐츠 영역 */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--large-spacing);
+  z-index: 1;
+}
+
+/* 제품명 */
+.product-name {
+  font-size: var(--large-text);
+  font-weight: 700;
+  margin-bottom: var(--small-spacing);
+}
+
+/* 제품 설명 */
+.product-description {
+  font-size: var(--base-text);
+  line-height: var(--line-normal);
+  margin-bottom: var(--x-small-spacing);
+}
+
+/* 출시일 정보 */
+.product-release {
+  font-size: var(--small-text);
+  color: var(--gray);
+  margin-bottom: var(--small-spacing);
+}
+
+/* 링크 버튼 컨테이너 */
+.product-links {
+  display: flex;
+  gap: var(--base-spacing);
+  margin-top: var(--small-spacing);
+}
+
+/* 링크 버튼 */
+.link-button {
+  display: inline-block;
+  font-size: var(--xx-small-text);
+  color: var(--blue-100);
+  padding: var(--x-small-spacing) var(--small-spacing);
+  border-radius: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: color 0.3s;
+}
+
+.link-button:hover,
+.link-button:focus {
+  color: var(--blue-200);
+}
+
+/* 제품 이미지 */
+.product-image {
+  position: relative;
+  grid-row: 2;
+  width: 100%;
+  background-image: url('../products/ipad_pro_2x.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* 고해상도 디스플레이용 배경 이미지 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .product-image {
+    background-image: url('../products/ipad_pro_2x.jpeg');
+  }
+}
+
+/* 반응형 미디어 쿼리 - 1024px 이상 */
+@media screen and (min-width: 1024px) {
+  .product-card {
+    grid-template-rows: 1fr;
+    max-width: 60rem; /* 960px */
+  }
+  
+  .card-content {
+    padding-top: var(--extra-large-spacing);
+  }
+  
+  .product-name {
+    font-size: var(--extra-large-text);
+  }
+  
+  .product-description {
+    font-size: var(--medium-text);
+  }
+  
+  .link-button {
+    font-size: var(--x-small-text);
+  }
+}
